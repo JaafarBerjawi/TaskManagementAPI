@@ -1,5 +1,5 @@
 # Task Management API
-This project is a Task Management Web API that allows users to get manage tasks. The API also includes user registration and token-based authentication.
+This project is a Task Management Web API that allows users to manage tasks. The API also includes user registration and token-based authentication.
 
 ## Table of Contents
 - Project Overview
