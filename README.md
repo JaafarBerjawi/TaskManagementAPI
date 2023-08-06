@@ -22,7 +22,7 @@ The Task Management Web API provides the following functionalities:
 
 Users need to be authenticated to access endpoints before.
 
-- **User Registration:** Users can register with the API by sending a POST request to the **/create_user** endpoint.
+- **User Registration:** Users can register with the API by sending a POST request to the **/users** endpoint.
 
 - **Token-based Authentication:** The API uses token-based authentication to secure specific endpoints. Users can obtain an authentication token by sending a POST request to the **/authenticate** endpoint.
 
@@ -42,11 +42,11 @@ The project consists of the following main components:
 1. **Security:** Contains authentication-related code and business logic.
   
     - **UserService:** Responsible for user registration.
-    - **TokenService:** Responsible for token generation and validation.
-    - ***UserDataManager:** Data manager for users using SQLAlchemy.
-    - ***UserTokenDataManager:** Data manager for user tokens using SQLAlchemy.
+    - **UserTokenService:** Responsible for token generation and validation.
+    - **UserDataManager:** Data manager for users using SQLAlchemy.
+    - **UserTokenDataManager:** Data manager for user tokens using SQLAlchemy.
     - **User and UserToken:** Entities for representing user information and authentication tokens.
-    - **EncryptionService:** Service for hashing passwords and tokens.
+    - **EncryptionService:** Service for hashing passwords and tokens, note that it is based on an abstract class with 2 implementations, one for easting where the encrypt method returns the same text without hashing and one for real scenarios where it does apply hashing.
 
  2. **TaskManagement:** Contains task-related code and business logic.
 
@@ -60,7 +60,7 @@ The project consists of the following main components:
     - **UserDataManagerABC:** Abstract class for user data operations.
     - **UserTokenDataManagerABC:** Abstract class for user token data operations.
     - **TaskDataManagerABC:** Abstract class for task management data operations.
-      Each of these abstract classes, has implemenations for testing and running.
+    - Each of these abstract classes, has implemenations for testing and running.
 
 4. **Data.Mock:** Contains mock data managers used for testing.
   
@@ -84,6 +84,7 @@ To run the TaskManagement Web API, follow these steps:
 - Ensure you have the python 3.8 installed on your machine.
 - Clone this repository to your local machine.
 - Open the solution in pycharm or your favorite code editor.
+- Install the packages listed in the **Technologies Used** section.
 
 ### Database Configuration
 1. Open the config.py file and update the connection string to your Postgres SQL Server database.
